@@ -1,0 +1,138 @@
+getgenv().AimlockKeyee = "q" 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/DaHoodScripts/NoUScripts/main/AimlockScript%22))()
+ -- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(30, 19, 70)
+Frame.BorderColor3 = Color3.fromRGB(38, 7, 53)
+Frame.Position = UDim2.new(0.26682502, 0, 0.356376648, 0)
+Frame.Size = UDim2.new(0, 674, 0, 387)
+
+UICorner.Parent = Frame
+
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(65, 25, 124)
+Frame_2.Position = UDim2.new(0.0178041551, 0, 0.0258397926, 0)
+Frame_2.Size = UDim2.new(0, 651, 0, 366)
+
+TextLabel.Parent = Frame_2
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.345622122, 0, 0.0191256832, 0)
+TextLabel.Size = UDim2.new(0, 214, 0, 50)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "KuBallls Da Hub"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextButton.Parent = Frame_2
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.Position = UDim2.new(0.0384024568, 0, 0.322404355, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 57)
+TextButton.Font = Enum.Font.Cartoon
+TextButton.Text = "Aimbot"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+UICorner_2.Parent = TextButton
+
+TextButton_2.Parent = Frame_2
+TextButton_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.Position = UDim2.new(0.0384024568, 0, 0.644808769, 0)
+TextButton_2.Size = UDim2.new(0, 200, 0, 50)
+TextButton_2.Visible = false
+TextButton_2.Font = Enum.Font.Cartoon
+TextButton_2.Text = "Fly X"
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14.000
+TextButton_2.TextWrapped = true
+
+UICorner_3.Parent = TextButton_2
+
+-- Scripts:
+
+local function ZXUT_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local LocalPlayer = game:GetService("Players").LocalPlayer
+	
+	local function Invincibility()
+		if LocalPlayer.Character then
+			for i, v in pairs(LocalPlayer.Character:GetChildren()) do
+				if v.Name == "hitbox" then
+					v:Destroy()
+				end
+			end
+		end
+	end
+	
+	while wait(0.5) do
+		Invincibility(LocalPlayer)
+	end
+end
+coroutine.wrap(ZXUT_fake_script)()
+local function KGFUZF_fake_script() -- Frame.Dragify 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+	    dragToggle = nil
+	    local dragSpeed = 0.50
+	    dragInput = nil
+	    dragStart = nil
+	    local dragPos = nil
+	    function updateInput(input)
+	        local Delta = input.Position - dragStart
+	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.30), {Position = Position}):Play()
+	    end
+	    Frame.InputBegan:Connect(function(input)
+	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+	            dragToggle = true
+	            dragStart = input.Position
+	            startPos = Frame.Position
+	            input.Changed:Connect(function()
+	                if input.UserInputState == Enum.UserInputState.End then
+	                    dragToggle = false
+	                end
+	            end)
+	        end
+	    end)
+	    Frame.InputChanged:Connect(function(input)
+	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	            dragInput = input
+	        end
+	    end)
+	    game:GetService("UserInputService").InputChanged:Connect(function(input)
+	        if input == dragInput and dragToggle then
+	            updateInput(input)
+	        end
+	    end)
+	end
+	
+	dragify(script.Parent)
+end
+coroutine.wrap(KGFUZF_fake_script)()
